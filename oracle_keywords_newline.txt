@@ -1,0 +1,34 @@
+is
+create
+alter
+drop
+drop tablespace
+drop user
+drop index
+insert
+update
+delete
+is
+select
+begin
+end
+truncate table
+grant
+revoke
+exception
+cursor
+return
+fetch
+if
+elsif
+else
+while
+loop
+for
+exit
+loop
+goto
+commit
+rollback
+set transaction
+lock table

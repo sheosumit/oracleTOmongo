@@ -1,0 +1,3 @@
+
+db.tableA.insertOne({user_id : '44,age : 45,status : 44})
+db.tableB.insertOne({nloa_a : 91})

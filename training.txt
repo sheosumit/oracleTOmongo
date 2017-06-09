@@ -1,0 +1,2316 @@
+create		nn			o
+table		jj			create_table
+people		nns		table_name
+(	jj		o
+id		jj		variable
+mediumint		nn		data_type
+not		rb		o
+null		jj		o
+auto_increment		nn		o
+,	jj		o
+user_id		jj		variable
+varchar		nn		data_type
+(	(		o
+30		cd		o
+)	)		o
+,	,		o
+age		nn		variable
+number		nn		data_type
+,	,		o
+status		nn		variable
+char		nn		data_type
+(	(		o
+1		cd		o
+)	)		o
+,	,		o
+primary		jj		o
+key		nn		o
+(	(		o
+id		jj		variable
+)	)		o
+)	)		o		
+
+create		nn		o
+index		nn		create_index
+idx_user_id_asc		vb		index_name
+on		in		o
+people		nns		table_name
+(	(		o
+user_id		jj		index_variable
+)	)		o			
+
+create		nn		o
+index		nn		create_index
+idx_user_id_asc_age_desc		vb		index_name
+on		in		o
+people		nns		table_name
+(	(		o
+user_id		jj		index_variable
+,	,		o
+age		nn		index_variable
+desc		nn		index_variable_desc
+)	)		o			
+
+CREATE		nn		o
+INDEX		nn		create_index
+idx_user_id_asc		vb		index_name
+ON		in		o
+people		nns		table_name
+(	(		o
+user_id		jj		index_variable
+)	)		o			
+
+CREATE		nn		o
+INDEX		nn		create_index
+idx_user_id_asc_age_desc		vb		index_name
+ON		in		o
+people		nns		table_name
+(	(		o
+user_id		jj		index_variable
+,	,		o
+age		nn		index_variable
+desc		nn		index_variable_desc
+)	)		o			
+
+drop		nn		drop_table
+table		nn		o
+people		nns		table_name	
+
+insert		nn		insert_data
+into		in		o
+people		nns		table_name
+(	(		o
+user_id		jj		variable
+,	,		o
+age		nn		variable
+,	,		o
+status		nn		variable
+)	)		o
+values		nns		o
+(	(		o
+"bcd001"		nn		o
+,	,		o
+45		cd		o
+a		dt		o
+
+)	)		o		
+
+select		jj		select_data
+*		nn		o
+from		in		o
+people		nns		table_name			
+
+select		jj		select_data
+*		nn		o
+from		in		o
+people		nns		table_name
+where		wrb		o
+status		nn		variable
+=		vbz		o
+"a"		dt		o
+ 		
+
+delete		nn		delete_data
+from		in		o
+people		nns		table_name
+where		wrb		where
+status		nn		where_expression
+=		vbz		where_expression		
+"d"		nn		 where_expression
+	
+
+
+create		nn		o
+or		cc		o
+replace		vb		o
+procedure		nn		create_procedure
+getdbuserbyuserid	nn	proc_name
+(	(	o
+p_userid	jj	proc_param
+in	in	o
+dbuser.user_id	nn	o
+%	nn	o
+type	nn	o
+,	,	o
+o_username	prp	proc_param
+out	rp	o
+dbuser.username	nn	o
+%	nn	o
+type	nn	o
+,	,	o
+o_createdby	prp	proc_param
+out	rp	o
+dbuser.created_by	nn	o
+%	nn	o
+type	nn	o
+,	,	o
+o_date	vbp	proc_param
+out	rp	o
+dbuser.created_date	nn	o
+%	nn	o
+type	nn	o
+)	)	o
+is	vbz	o
+
+begin	jj	begin
+
+select	jj	select_data
+username	nn	variable
+,	,	o
+created_by	nn	variable
+,	,	o
+created_date	nn	variable
+into	in	o
+o_username	nn	variable
+,	,	o
+,	,	o
+o_date	nn	variable
+from	in	o
+dbuser	nn	table_name
+where	wrb	o
+user_id	jj	variable
+=	nnp	o
+p_userid	nn	o
+;	:	o
+end	nn	end
+;	:	o
+
+create	jj	o
+or		jj	o
+replace	jj	o
+procedure	pp	create_procedure
+getdbuserbyuserid	pp	proc_name
+(	pp	o
+userid	pp	proc_param
+in		pp	o
+dbuser.user_id	pp	o
+%	pp	o
+type	pp	o
+,		pp	o
+o_username	pp	proc_param
+out	pp	o
+dbuser.username%type	pp	o
+,				pp	o
+o_createdby	pp	proc_param	
+out		pp	o	
+dbuser.created_by%type	pp	o
+,	pp	o
+o_date		pp	proc_param
+out	pp	o
+dbuser.created_date%type	pp	o
+)	pp	o
+is	pp	o
+begin				pp		begin
+select		pp	select_data
+username	pp	variable
+,		pp	o
+created_by	pp	variable
+,	pp	o
+created_date	pp	variable		
+from	pp	o
+dbuser	pp	table_name
+where	pp		o
+user_id	pp	variable
+=	pp	o
+p_userid	pp	value
+;	pp	o
+end	pp	end
+;	pp	o
+begin	vb	begin
+begin	vb	begin
+select	vb	o
+*	vb	all
+from	vb	o
+tbl_loan_structure_migration	vb	table_name
+order	vb	o	
+by	pp o
+select	vb	select_data
+max(	pp	o
+ln_actual_loan_structure_id	vb	o
+from	vb	o
+tbl_loan_structure_prop_asst	table_name o
+where	vb	o
+property_id	vb	variable
+=	vb	o	
+lrec_setup_loan_structure	vb	o
+.	vb	o
+property_id	vb	value
+;	vb	o
+select	vb	select_data
+max	pp	o
+into	vb	o
+ln_ac_loan_structure_id_loan	vb	o
+from	vb	o
+tbl_loan_structure_loan_asst	vb	table_name
+where	vb	o
+loan_id_key	vb	variable
+=	vb	o
+rec_setup_loan_structure	vb	o
+.	vb	o
+loan_id_key		vb	value
+;	vb	o
+select	vb	select_data
+distinct	vb	o
+temp_loan_structure_id	vb	o
+into	vb	o
+ln_temp_loan_structure_id	vb	o
+from	vb	o
+tbl_loan_structure_migration	vb	table_name
+where	vb	o
+property_id	vb	variable
+=	vb	o
+lrec_setup_loan_structure.property_id	vb	variable	
+
+select	vb	select_data
+min	vb	minimum
+(	vb	o
+temp_loan_structure_id	vb	o
+)	vb	o
+into	vb	o
+ln_temp_loan_structure_id	vb	variable
+from	vb	o
+tbl_loan_structure_migration	vb	o
+where	vb	o
+property_id	vb	variable
+=	vb	o
+lrec_setup_loan_structure.property_id	vb	value	
+select	vb	select_data
+*	vb	o
+lo_latest_proj_seq_num_list					pp											proc_param
+in											pp											o
+out							pp											o
+varchar_table,												pp											o
+io_o_error_tablein								pp											proc_param
+out							pp											o
+err_table									pp											o
+)														pp											o
+
+create	pp											o
+or										pp											o
+replace														pp											o
+procedure							pp											create_procedure
+"scoreplus"."sp_aam_validate_res_delay"													pp											proc_name
+(in_v_capid								pp											proc_param
+in											pp											o
+tbl_asset.capid%type,													pp											o
+ln_aam_proj_seq_num																pp											proc_param
+in											pp											o
+tbl_approved_proj_summary.projection_seq_num%type,								pp											o
+in_o_claim_list		pp											proc_param
+in											pp											o
+aam_claim_table,					pp											o
+in_v_user_idin	pp											proc_param
+tbl_user.user_id%type,										pp											o
+in_ch_user_language				pp											proc_param
+in											pp											o
+tbl_user.default_language%type,															pp											o
+lo_old_proj_seq_num_listin					pp											proc_param
+out							pp											o
+varchar_table,												pp											o
+io_o_error_table	pp	proc_param
+in											pp											o
+out							pp											o
+err_table									pp											o
+)														pp											o
+varchar2(50);	pp											o
+lch_prop_id								pp											proc_param
+char(3);														pp											o
+in_ch_loan_id_key									pp											proc_param
+tbl_loan.loan_id_key%type;														pp											o
+
+create	pp											o
+or										pp											o
+replace														pp											o
+procedure							pp											create_procedure
+"scoreplus"."sp_aam_cancel_ram"														pp											proc_name
+(														pp											o
+in_v_capid										pp											proc_param
+in											pp											o
+tbl_asset.capid%type,													pp											o
+ln_aam_proj_seq_num																pp											proc_param
+in											pp											o
+tbl_approved_proj_summary.projection_seq_num%type,								pp											o
+in_o_claim_list		pp											proc_param
+in											pp											o
+aam_claim_table,					pp											o
+in_v_user_id	pp	proc_param
+in											pp											o
+tbl_user.user_id%type,										pp											o
+in_ch_user_language				pp											proc_param
+in	    pp o										
+tbl_user.default_language%type,															pp											o
+out_o_error_table										pp											proc_param
+out							pp											o
+err_table									pp											o
+)														pp											o
+
+create	pp											o
+or										pp											o
+replace														pp											o
+procedure							pp											create_procedure
+"scoreplus"."sp_aam_validate_cancel_ram"							pp											proc_name
+(in_v_capid								pp											proc_param
+in											pp											o
+tbl_asset.capid%type,													pp											o
+ln_aam_proj_seq_num																pp											proc_param
+in											pp											o
+tbl_approved_proj_summary.projection_seq_num%type,								pp											o
+in_o_claim_list		pp											proc_param
+in											pp											o
+aam_claim_table,					pp											o
+in_v_user_id	pp	proc_param
+in											pp											o
+tbl_user.user_id%type,										pp											o
+in_ch_user_language				pp											proc_param
+in											pp											o
+tbl_user.default_language%type,															pp											o
+into	vb	o
+ln_temp_l_loan_structure_id	vb	o
+from	vb	o
+tbl_loan_structure_migration	vb	table_name
+where	vb	o
+loan_id_key	vb	o
+=	vb	o
+lrec_setup_loan_structure.loan_id_key	vb	o	
+;	vb	o
+select	vb	select_data
+min	vb	o
+(	vb	o
+temp_loan_structure_id	vb	variable
+)	vb	o
+into	vb	o
+ln_temp_l_loan_structure_id	vb	o
+from	vb	o
+tbl_loan_structure_migration	vb	table_name
+where	vb	o
+loan_id_key	vb	variable
+=	vb	o
+lrec_setup_loan_structure.loan_id_key	vb	value
+;		vb	o
+
+create	pp											o
+or										pp											o
+replace														pp											o
+procedure							pp											create_procedure
+"scoreplus"."data_migration_for_cs"					pp											proc_name
+as											pp											o
+ln_temp_loan_structure_id								pp											proc_param
+tbl_loan_structure_migration.temp_loan_structure_id%type;									pp											proc_param
+ln_temp_l_loan_structure_id	pp														o
+tbl_loan_structure_migration.temp_loan_structure_id%type;									pp											proc_param
+ln_actual_loan_structure_id	pp	o
+tbl_loan_structure_migration.actual_loan_structure_id%type;				pp											proc_param
+ln_ac_loan_structure_id_loan			pp											proc_param
+tbl_loan_structure_migration.actual_loan_structure_id%type;				pp											proc_param
+ln_rec_counter	pp											proc_param
+number													pp											o
+:=												pp											o
+0;												pp											o
+
+create	pp											o
+or										pp											o
+replace														pp											o
+procedure							pp											create_procedure
+"scoreplus"."migration_script_for_safeguard"														pp											proc_name
+
+is												pp											o
+
+lch_loan_no							pp											proc_param
+tbl_loan.loan_id%type;								pp											o
+lch_prop_loan_id	pp						proc_param
+
+
+SELECT		pp			select_data
+CITY pp  variable
+,		pp			o
+TARGET pp variable
+,		pp			o
+SALES		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+
+SELECT		pp			o
+CITY pp variable
+,		pp			o
+TARGET pp variable
+,		pp			o
+SALES		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+WHERE		pp			o
+REGION		pp			where_expression
+=		pp			where_expression
+'Eastern'		pp			where_expression
+
+SELECT		pp			select_data
+CITY pp variable
+,		pp			o
+TARGET pp variable 
+,		pp			o
+SALES		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+WHERE		pp			o
+REGION		pp			where_expression
+=		pp			where_expression
+'Eastern'		pp			where_expression
+AND		pp			where_expression
+SALES		pp			where_expression
+>		pp			where_expression
+TARGET		pp			where_expression
+ORDER		pp			order
+BY		pp			o
+CITY		pp			order_variable
+
+SELECT		pp			select_data
+AVG pp aggregate
+( pp o
+TARGET pp aggregate_variable
+) pp o
+,		pp			o
+AVG pp aggregate 
+( pp 	 o
+SALES pp aggregate_variable
+)		pp			o
+FROM		pp			o
+OFFICES		pp			table_name
+WHERE		pp			o
+REGION		pp			where_expression
+=		pp			where_expression
+'Eastern'		pp			where_expression
+
+SELECT		pp			o
+NAME	pp 	variable
+,		pp			o
+REP_OFFICE pp variable
+,		pp			o
+HIRE_DATE		pp			variable
+FROM		pp			o
+SALESREPS		pp			table_name
+
+
+SELECT		pp			select_data
+NAME		pp			variable
+,		pp			o
+QUOTA	pp  				variable
+,		pp			o
+SALES		pp						variable
+FROM		pp			o
+SALESREPS		pp			table_name
+WHERE		pp			o
+EMPL_NUM		pp			where_expression
+=		pp			where_expression
+107		pp			where_expression
+
+
+SELECT		pp			select_data
+AVG(SALES)		pp			aggregate
+FROM		pp			o
+SALESREPS		pp			table_name
+
+
+SELECT		pp			o
+NAME pp variable
+,		pp			o
+HIRE_DATE		pp			variable
+FROM		pp			o
+SALESREPS		pp			table_name
+WHERE		pp			o
+SALES		pp			where_expression
+>		pp			where_expression
+500000		pp			where_expression
+
+
+SELECT		pp			select_data
+NAME pp variable
+,		pp			o
+QUOTA   pp  variable
+,		pp			o
+MANAGER		pp			variable
+FROM		pp			o
+SALESREPS		pp			table_name
+
+SELECT		pp			select_data
+CITY   pp variable
+,		pp			o
+REGION pp variable
+,		pp			o
+SALES		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+
+SELECT		pp			select_data
+CITY pp variable
+,		pp			o
+REGION pp variable
+,		pp			o
+( 	pp select_expression
+SALES		pp			select_expression
+-		pp			select_expression
+TARGET 	 pp select_expression
+)		pp			select_expression
+FROM		pp			o
+OFFICES		pp			table_name
+
+
+SELECT		pp			select_data
+MFR_ID pp variable
+,		pp			o
+PRODUCT_ID pp variable
+,		pp			o
+DESCRIPTION  pp variable
+,		pp			o
+( 	pp select_expression
+QTY_ON_HAND		pp			select_expression
+*		pp			select_expression
+PRICE pp select_expression
+)		pp			select_expression
+FROM		pp			o
+PRODUCTS		pp			table_name
+
+SELECT		pp			select_data
+NAME pp variable
+,		pp			o
+QUOTA pp o
+,		pp			o
+( pp 	select_expression
+QUOTA		pp			select_expression
++		pp			select_expression
+( pp select_expression
+.03*SALES	pp select_expression
+)	pp select_expression
+)		pp			select_expression
+FROM		pp			o
+SALESREPS		pp			table_name
+
+
+SELECT		pp			select_data
+NAME	 pp variable
+,		pp	 o		
+MONTH pp month_date
+( pp o
+HIRE_DATE pp date
+) pp o
+,		pp			o
+YEAR pp year_date
+( pp o
+HIRE_DATE pp date
+)		pp			o
+FROM		pp			o
+SALESREPS		pp			table_name
+
+SELECT		pp			select_data
+CITY pp variable
+,		pp			o
+' pp select_projection
+has		pp			select_projection
+sales		pp			select_projection
+of	 pp select_projection
+'	 pp select_projection
+,		pp			o
+SALES		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+
+
+SELECT		pp			select_data
+*		pp			o
+FROM		pp			o
+OFFICES		pp			table_name
+
+SELECT		pp			select_data
+* 	 pp o
+,		pp			o
+( pp select_expression
+SALES		pp			select_expression
+-		pp			select_expression
+TARGET pp select_expression
+)		pp			select_expression
+FROM		pp			o
+OFFICES		pp			table_name
+
+SELECT		pp			select_data
+DISTINCT		pp			distinct
+MGR		pp			o
+FROM		pp			o
+OFFICES		pp			table_name
+
+
+
+SELECT		pp			select_data
+NAME		pp			variable
+FROM		pp			o
+SALESREPS		pp			table_name
+WHERE		pp			o
+HIRE_DATE		pp			where_expression
+<		pp			where_expression
+'01-JAN-88'		pp			where_expression
+
+
+SELECT		pp			select_data
+CITY	pp			variable
+,	pp			o	
+MGR		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+WHERE		pp			o
+MGR		pp			where_expression
+<>		pp			where_expression
+108		pp			where_expression
+
+
+SELECT		pp			select_data
+ORDER_NUM 	pp V
+FROM		pp			o
+ORDERS		pp			table_name
+WHERE		pp			o
+ORDER_DATE		pp			where_expression
+BETWEEN		pp			where_expression
+'01-OCT-89'		pp			where_expression
+AND		pp			where_expression
+'31-DEC-89'		pp			where_expression
+
+SELECT		pp			select_data
+QUOTA		pp			o
+FROM		pp			o
+SALESREPS		pp			table_name
+WHERE		pp			o
+SALES		pp			where_expression
+NOT		pp			where_expression
+BETWEEN		pp			where_expression
+(  pp where_expression
+.	 pp where_expression
+8		pp			where_expression
+*		pp			where_expression
+QUOTA	 pp			where_expression
+)		pp			where_expression
+AND		pp			where_expression
+(  pp where_expression
+  1.2		pp			where_expression
+*		pp			where_expression
+QUOTA pp where_expression
+)		pp			where_expression
+
+SELECT		pp			select_data
+CITY pp variable
+FROM		pp			o
+OFFICES		pp			table_name
+ORDER		pp			order
+BY		pp	o		
+REGION pp order_variable
+,		pp			o
+CITY		pp			order_variable
+
+SELECT		pp			select_data
+CITY		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+ORDER		pp			order
+BY		pp			o
+SALES		pp			order_variable
+DESC		pp			order_desc
+
+
+SELECT		pp			select_data
+CITY		pp			variable
+( pp select_expression
+SALES		pp			select_expression
+-		pp			select_expression
+TARGET 	pp select_expression
+)		pp			select_expression
+FROM		pp			o
+OFFICES		pp			table_name
+ORDER		pp			order
+BY		pp			o
+REGION		pp			order_variable
+ASC pp o
+,		pp			o
+3		pp			order_variable_number
+DESC		pp			desc
+
+SELECT		pp			select_data
+MFR_ID 	 pp variable
+FROM		pp	o	
+PRODUCTS		pp			table_name
+WHERE		pp			o
+PRICE		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression
+UNION		pp			union
+SELECT		pp			select_data
+DISTINCT		pp			distinct
+MFR pp variable
+,		pp			o
+PRODUCT		pp			variable
+FROM		pp			o
+ORDERS		pp			table_name
+WHERE		pp			o
+AMOUNT		pp			where_expression
+>		pp			where_expression
+30000		pp			where_expression
+
+
+SELECT		pp			select_data
+MFR_ID pp variable
+FROM		pp			o
+PRODUCTS		pp			table_name
+WHERE		pp			o
+PRICE		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression 
+
+UNION		pp			union
+
+ALL		pp			all
+
+
+SELECT		pp			select_data
+PRODUCT_ID		pp			variable
+FROM		pp			o
+PRODUCTS		pp			table_name
+WHERE		pp			o
+PRICE		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression
+
+UNION		pp			union
+
+SELECT		pp			select_expression
+DISTINCT		pp			distinct
+MFR pp variable
+,		pp o		
+PRODUCT		pp			variable
+FROM		pp			o
+ORDERS		pp			table_name
+WHERE		pp			o
+AMOUNT		pp			where_expression
+>		pp			where_expression
+30000		pp			where_expression
+ORDER		pp			order
+BY		pp			o
+1		pp			order_variable_number
+, pp o
+2		pp			order_variable_number
+
+SELECT		pp			select_data
+*		pp			o
+FROM		pp			o
+A		pp			table_name
+UNION		pp			union
+(   pp o
+SELECT		pp			select_data
+*		pp			o
+FROM		pp			o
+B		pp			table_name
+UNION		pp			union
+SELECT		pp			o
+*		pp			o
+FROM		pp			o
+C         pp table_name
+)		pp			o
+
+SELECT		pp			select_data
+S.NAME 	 pp  table_variable
+,		pp			o
+S.QUOTA 		pp			o
+,		pp			o
+B.BIRTH_DATE		pp						table_variable
+FROM		pp			o
+SALESREPS		pp			table_name
+S pp table_instance
+,		pp			o
+SAM.BIRTHDAYS		pp			o
+B		pp			o
+WHERE		pp			o
+S.NAME		pp			where_expression
+=		pp			where_expression
+B.NAME		pp			where_expression
+	
+		
+SELECT		pp			select_data
+REP_OFFICE pp variable
+,		pp			o
+MIN pp aggregate
+( pp o
+QUOTA pp aggregate_variable
+) pp o
+,		pp			o
+MAX pp	aggregate
+(	pp	o
+QUOTA	 pp aggregate_variable
+)		pp			o
+FROM		pp			o
+SALESREPS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+REP_OFFICE		pp			group_variable
+
+SELECT		pp			select
+REP_OFFICE pp variable
+,		pp			o
+COUNT pp aggregate
+( pp o
+*	pp o
+)	pp p	
+FROM		pp			o
+SALESREPS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+REP_OFFICE		pp			group_variable
+
+SELECT		pp			select_data
+COUNT pp aggregate
+( pp o
+DISTINCT		pp			distinct
+CUST_NUM pp aggregate_variable
+,		pp			o
+' pp  select_projection
+customers		pp			select_projection
+for		pp			select_projection
+salesrep  pp		select_projection
+' pp select_projection
+,		pp			o
+CUST_REP		pp			variable
+FROM		pp			o
+CUSTOMERS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+CUST_REP		pp			group_variable
+	
+SELECT		pp			select_data
+REP pp variable
+SUM	 pp aggregate
+(	 pp o
+AMOUNT pp aggregate_variable
+)		pp			o
+FROM		pp			o
+ORDERS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+REP	 pp 	group_variable
+,		pp			o
+CUST		pp			group_variable
+SELECT		pp			select_data
+CUST 	pp variable
+SUM	 pp aggregate
+( 		pp	o
+AMOUNT	pp 	o
+)		pp			o
+FROM		pp			o
+ORDERS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+CUST	 pp 	group_variable
+,		pp			o
+REP		pp			group_variable
+ORDER		pp			order
+BY		pp			o
+CUST	 pp		order_variable
+,		pp			o
+REP		pp			order_variable
+SELECT		pp			select_data
+REP 	pp variable
+,		pp			o
+AVG	 pp aggregate
+( pp o
+AMOUNT	 pp aggregate_variable
+)		pp			o
+FROM		pp			o
+ORDERS		pp			table_name
+GROUP		pp			group
+BY		pp			o
+REP		pp			group_variable
+HAVING		pp			having
+SUM pp aggregate
+(	 pp o
+AMOUNT 	pp aggregate_variable
+)		pp			o
+>		pp			having_expression
+30000		pp			having_expression
+WHERE		pp			o
+OFFICE		pp			where_expression
+=		pp			o
+REP_OFFICE		pp			where_expression
+GROUP		pp			group
+BY		pp			o
+CITY		pp			group_variable
+HAVING		pp			having
+COUNT	 pp aggregate
+( pp o
+* pp o
+)		pp			o
+>=		pp			having_expression
+2		pp			having_expression
+	
+SELECT		pp			select_data
+SUM 	pp aggregate
+QTY pp aggregate_variable
+)		pp			o
+FROM		pp			o
+PRODUCTS	pp table_name
+,		pp			o
+ORDERS		pp			table_name
+WHERE		pp			o
+MFR		pp			where_expression
+=		pp			where_expression
+MFR_ID		pp		where_expression
+AND		pp			where_expression
+PRODUCT		pp			where_expression
+=		pp			where_expression
+PRODUCT_ID		pp			where_expression
+GROUP		pp			group
+BY		pp			o
+MFR_ID 		pp group_variable
+,		pp			o
+PRODUCT_ID pp group_variable
+,		pp			o
+DESCRIPTION pp group_variable
+,		pp			o
+PRICE pp group_variable
+,		pp			o
+QTY_ON_HAND		pp			group_variable
+HAVING		pp			having
+SUM pp aggregate
+( pp o
+QTY pp aggregate_variable
+)		pp			O
+>		pp			having_expression
+(.75		pp			having_expression
+*		pp			having_expression
+QTY_ON_HAND pp having_expression
+)		pp			having_expression
+ORDER		pp			order
+BY		pp			o
+QTY_ON_HAND		pp			order_variable
+DESC		pp			order_desc
+
+SELECT		pp			select_data
+CITY		pp			variable
+FROM		pp			o
+OFFICES		pp			table_name
+WHERE		pp			o
+TARGET		pp			where_expression
+>		pp			where_expression
+( pp where_expression
+SELECT		pp			select_expression
+SUM pp aggregate
+(	pp o
+QUOTA pp aggregate_variable
+)		pp			o
+FROM		pp			o
+SALESREPS		pp		table_name
+WHERE		pp			o
+REP_OFFICE		pp			where_expression
+=		pp			where_expression
+OFFICE 	PP	where_expression
+)		pp			where_expression
+
+select		pp			select_data
+city pp  variable
+,		pp			o
+target pp variable
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+
+select		pp			o
+city pp variable
+,		pp			o
+target pp variable
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+where		pp			o
+region		pp			where_expression
+=		pp			where_expression
+'eastern'		pp			where_expression
+
+select		pp			select_data
+city pp variable
+,		pp			o
+target pp variable 
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+where		pp			o
+region		pp			where_expression
+=		pp			where_expression
+' pp			where_expression
+eastern pp			where_expression
+'		pp			where_expression
+and		pp			where_expression
+sales		pp			where_expression
+>		pp			where_expression
+target		pp			where_expression
+order		pp			order
+by		pp			o
+city		pp			order_variable
+
+select		pp			select_data
+avg pp aggregate
+( pp o
+target pp aggregate_variable
+) pp o
+,		pp			o
+avg pp aggregate 
+( pp 	 o
+sales pp aggregate_variable
+)		pp			o
+from		pp			o
+offices		pp			table_name
+where		pp			o
+region		pp			where_expression
+=		pp			where_expression
+'eastern'		pp			where_expression
+
+select		pp			o
+name	pp 	variable
+,		pp			o
+rep_office pp variable
+,		pp			o
+hire_date		pp			variable
+from		pp			o
+salesreps		pp			table_name
+
+
+select		pp			select_data
+name		pp			variable
+,		pp			o
+quota	pp  				variable
+,		pp			o
+sales		pp						variable
+from		pp			o
+salesreps		pp			table_name
+where		pp			o
+empl_num		pp			where_expression
+=		pp			where_expression
+107		pp			where_expression
+
+
+select		pp			select_data
+avg(sales)		pp			aggregate
+from		pp			o
+salesreps		pp			table_name
+
+
+select		pp			o
+name pp variable
+,		pp			o
+hire_date		pp			variable
+from		pp			o
+salesreps		pp			table_name
+where		pp			o
+sales		pp			where_expression
+>		pp			where_expression
+500000		pp			where_expression
+
+
+select		pp			select_data
+name pp variable
+,		pp			o
+quota   pp  variable
+,		pp			o
+manager		pp			variable
+from		pp			o
+salesreps		pp			table_name
+
+select		pp			select_data
+city   pp variable
+,		pp			o
+region pp variable
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+
+select		pp			select_data
+city pp variable
+,		pp			o
+region pp variable
+,		pp			o
+( 	pp select_expression
+sales		pp			select_expression
+-		pp			select_expression
+target 	 pp select_expression
+)		pp			select_expression
+from		pp			o
+offices		pp			table_name
+
+
+select		pp			select_data
+mfr_id pp variable
+,		pp			o
+product_id pp variable
+,		pp			o
+description  pp variable
+,		pp			o
+( 	pp select_expression
+qty_on_hand		pp			select_expression
+*		pp			select_expression
+price pp select_expression
+)		pp			select_expression
+from		pp			o
+products		pp			table_name
+
+select		pp			select_data
+name pp variable
+,		pp			o
+quota pp o
+,		pp			o
+( pp 	select_expression
+quota		pp			select_expression
++		pp			select_expression
+( pp select_expression
+.03*sales	pp select_expression
+)	pp select_expression
+)		pp			select_expression
+from		pp			o
+salesreps		pp			table_name
+
+
+select		pp			select_data
+name	 pp variable
+,		pp	 o		
+month pp month_date
+( pp o
+hire_date pp date
+) pp o
+,		pp			o
+year pp year_date
+( pp o
+hire_date pp date
+)		pp			o
+from		pp			o
+salesreps		pp			table_name
+
+select		pp			select_data
+city pp variable
+,		pp			o
+' pp select_projection
+has		pp			select_projection
+sales		pp			select_projection
+of	 pp select_projection
+'	 pp select_projection
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+
+
+select		pp			select_data
+*		pp			o
+from		pp			o
+offices		pp			table_name
+
+select		pp			select_data
+* 	 pp o
+,		pp			o
+( pp select_expression
+sales		pp			select_expression
+-		pp			select_expression
+target pp select_expression
+)		pp			select_expression
+from		pp			o
+offices		pp			table_name
+
+select		pp			select_data
+distinct		pp			distinct
+mgr		pp			o
+from		pp			o
+offices		pp			table_name
+
+
+
+select		pp			select_data
+name		pp			variable
+from		pp			o
+salesreps		pp			table_name
+where		pp			o
+hire_date		pp			where_expression
+<		pp			where_expression
+'01-jan-88'		pp			where_expression
+
+
+select		pp			select_data
+city	pp			variable
+,	pp			o	
+mgr		pp			variable
+from		pp			o
+offices		pp			table_name
+where		pp			o
+mgr		pp			where_expression
+<>		pp			where_expression
+108		pp			where_expression
+
+
+select		pp			select_data
+order_num 	pp v
+from		pp			o
+orders		pp			table_name
+where		pp			o
+order_date		pp			where_expression
+between		pp			where_expression
+'01-oct-89'		pp			where_expression
+and		pp			where_expression
+'31-dec-89'		pp			where_expression
+
+select		pp			select_data
+quota		pp			o
+from		pp			o
+salesreps		pp			table_name
+where		pp			o
+sales		pp			where_expression
+not		pp			where_expression
+between		pp			where_expression
+(  pp where_expression
+.	 pp where_expression
+8		pp			where_expression
+*		pp			where_expression
+quota	 pp			where_expression
+)		pp			where_expression
+and		pp			where_expression
+(  pp where_expression
+  1.2		pp			where_expression
+*		pp			where_expression
+quota pp where_expression
+)		pp			where_expression
+
+select		pp			select_data
+city pp variable
+from		pp			o
+offices		pp			table_name
+order		pp			order
+by		pp	o		
+region pp order_variable
+,		pp			o
+city		pp			order_variable
+
+select		pp			select_data
+city		pp			variable
+from		pp			o
+offices		pp			table_name
+order		pp			order
+by		pp			o
+sales		pp			order_variable
+desc		pp			order_desc
+
+
+select		pp			select_data
+city		pp			variable
+( pp select_expression
+sales		pp			select_expression
+-		pp			select_expression
+target 	pp select_expression
+)		pp			select_expression
+from		pp			o
+offices		pp			table_name
+order		pp			order
+by		pp			o
+region		pp			order_variable
+asc pp o
+,		pp			o
+3		pp			order_variable_number
+desc		pp			desc
+
+select		pp			select_data
+mfr_id 	 pp variable
+from		pp	o	
+products		pp			table_name
+where		pp			o
+price		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression
+union		pp			union
+select		pp			select_data
+distinct		pp			distinct
+mfr pp variable
+,		pp			o
+product		pp			variable
+from		pp			o
+orders		pp			table_name
+where		pp			o
+amount		pp			where_expression
+>		pp			where_expression
+30000		pp			where_expression
+
+
+select		pp			select_data
+mfr_id pp variable
+from		pp			o
+products		pp			table_name
+where		pp			o
+price		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression 
+
+union		pp			union
+
+all		pp			all
+
+
+select		pp			select_data
+product_id		pp			variable
+from		pp			o
+products		pp			table_name
+where		pp			o
+price		pp			where_expression
+>		pp			where_expression
+2000		pp			where_expression
+
+union		pp			union
+
+select		pp			select_expression
+distinct		pp			distinct
+mfr pp variable
+,		pp o		
+product		pp			variable
+from		pp			o
+orders		pp			table_name
+where		pp			o
+amount		pp			where_expression
+>		pp			where_expression
+30000		pp			where_expression
+order		pp			order
+by		pp			o
+1		pp			order_variable_number
+, pp o
+2		pp			order_variable_number
+
+select		pp			select_data
+*		pp			o
+from		pp			o
+a		pp			table_name
+union		pp			union
+(   pp o
+select		pp			select_data
+*		pp			o
+from		pp			o
+b		pp			table_name
+union		pp			union
+select		pp			o
+*		pp			o
+from		pp			o
+c         pp table_name
+)		pp			o
+
+select		pp			select_data
+s.name 	 pp  table_variable
+,		pp			o
+s.quota 		pp			o
+,		pp			o
+b.birth_date		pp						table_variable
+from		pp			o
+salesreps		pp			table_name
+s pp table_instance
+,		pp			o
+sam.birthdays		pp			o
+b		pp			o
+where		pp			o
+s.name		pp			where_expression
+=		pp			where_expression
+b.name		pp			where_expression
+	
+		
+select		pp			select_data
+rep_office pp variable
+,		pp			o
+min pp aggregate
+( pp o
+quota pp aggregate_variable
+) pp o
+,		pp			o
+max pp	aggregate
+(	pp	o
+quota	 pp aggregate_variable
+)		pp			o
+from		pp			o
+salesreps		pp			table_name
+group		pp			group
+by		pp			o
+rep_office		pp			group_variable
+
+select		pp			select
+rep_office pp variable
+,		pp			o
+count pp aggregate
+( pp o
+*	pp o
+)	pp p	
+from		pp			o
+salesreps		pp			table_name
+group		pp			group
+by		pp			o
+rep_office		pp			group_variable
+
+select		pp			select_data
+count pp aggregate
+( pp o
+distinct		pp			distinct
+cust_num pp aggregate_variable
+,		pp			o
+' pp  select_projection
+customers		pp			select_projection
+for		pp			select_projection
+salesrep  pp		select_projection
+' pp select_projection
+,		pp			o
+cust_rep		pp			variable
+from		pp			o
+customers		pp			table_name
+group		pp			group
+by		pp			o
+cust_rep		pp			group_variable
+	
+select		pp			select_data
+rep pp variable
+sum	 pp aggregate
+(	 pp o
+amount pp aggregate_variable
+)		pp			o
+from		pp			o
+orders		pp			table_name
+group		pp			group
+by		pp			o
+rep	 pp 	group_variable
+,		pp			o
+cust		pp			group_variable
+select		pp			select_data
+cust 	pp variable
+sum	 pp aggregate
+( 		pp	o
+amount	pp 	o
+)		pp			o
+from		pp			o
+orders		pp			table_name
+group		pp			group
+by		pp			o
+cust	 pp 	group_variable
+,		pp			o
+rep		pp			group_variable
+order		pp			order
+by		pp			o
+cust	 pp		order_variable
+,		pp			o
+rep		pp			order_variable
+select		pp			select_data
+rep 	pp variable
+,		pp			o
+avg	 pp aggregate
+( pp o
+amount	 pp aggregate_variable
+)		pp			o
+from		pp			o
+orders		pp			table_name
+group		pp			group
+by		pp			o
+rep		pp			group_variable
+having		pp			having
+sum pp aggregate
+(	 pp o
+amount 	pp aggregate_variable
+)		pp			o
+>		pp			having_expression
+30000		pp			having_expression
+where		pp			o
+office		pp			where_expression
+=		pp			o
+rep_office		pp			where_expression
+group		pp			group
+by		pp			o
+city		pp			group_variable
+having		pp			having
+count	 pp aggregate
+( pp o
+* pp o
+)		pp			o
+>=		pp			having_expression
+2		pp			having_expression
+	
+select		pp			select_data
+sum 	pp aggregate
+qty pp aggregate_variable
+)		pp			o
+from		pp			o
+products	pp table_name
+,		pp			o
+orders		pp			table_name
+where		pp			o
+mfr		pp			where_expression
+=		pp			where_expression
+mfr_id		pp		where_expression
+and		pp			where_expression
+product		pp			where_expression
+=		pp			where_expression
+product_id		pp			where_expression
+group		pp			group
+by		pp			o
+mfr_id 		pp group_variable
+,		pp			o
+product_id pp group_variable
+,		pp			o
+description pp group_variable
+,		pp			o
+price pp group_variable
+,		pp			o
+qty_on_hand		pp			group_variable
+having		pp			having
+sum pp aggregate
+( pp o
+qty pp aggregate_variable
+)		pp			o
+>		pp			having_expression
+(.75		pp			having_expression
+*		pp			having_expression
+qty_on_hand pp having_expression
+)		pp			having_expression
+order		pp			order
+by		pp			o
+qty_on_hand		pp			order_variable
+desc		pp			order_desc
+
+select		pp			select_data
+city		pp			variable
+from		pp			o
+offices		pp			table_name
+where		pp			o
+target		pp			where_expression
+>		pp			where_expression
+( pp where_expression
+select		pp			select_expression
+sum pp aggregate
+(	pp o
+quota pp aggregate_variable
+)		pp			o
+from		pp			o
+salesreps		pp		table_name
+where		pp			o
+rep_office		pp			where_expression
+=		pp			where_expression
+office 	pp	where_expression
+)		pp			where_expression
+select		pp			select_data
+city pp variable
+,		pp			o
+target pp variable 
+,		pp			o
+sales		pp			variable
+from		pp			o
+offices		pp			table_name
+where		pp			o
+region		pp			where_expression
+=		pp			where_expression
+" pp			where_expression
+eastern pp			where_expression
+"		pp			where_expression
+and		pp			where_expression
+sales		pp			where_expression
+>		pp			where_expression
+target		pp			where_expression
+
+
+INSERT  pp			insert
+ INTO   pp			o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+'cccc'   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+'cccc'   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+'cccc'   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp		o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+'bcd001'   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ INTO   pp			o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into   pp			o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+'a'  pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+'cccc'   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"A"   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+INSERT  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+VALUES    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ people   pp			table_name
+ (    pp			o
+ user_id    pp			variable
+ ,   pp			o
+ age   pp			variable
+,   pp			o
+status    pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"bcd001"   pp			insert_col_val
+,   pp			o
+45   pp			insert_col_val
+,   pp			o
+"a"   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ ttsbk   pp			table_name
+ (    pp			o
+ ooo    pp			variable
+ ,   pp			o
+ asdf   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+"cccc"   pp			insert_col_val
+,   pp			o
+'jkjkjkjk'   pp			insert_col_val
+)   pp			o
+
+insert  pp			insert
+ into     pp  o
+ccgg   pp			table_name
+ (    pp			o
+ col   pp			variable
+)   pp			o
+values    pp			o
+(   pp			o
+22   pp			insert_col_val
+)   pp			o
+
+delete		nn		delete_data
+from		in		o
+table		nns		table_name
+where		wrb		where
+abc		nn		where_expression
+>		vbz		 where_expression
+0		nn		 where_expression
+
+delete		nn		delete_data
+from		in		o
+table		nns		table_name
+where		wrb		where
+abc		nn		where_expression
+>		vbz		 where_expression
+0		nn		 where_expression
+and pp where_expression
+xyz pp where_expression
+= pp where_expression
+77 pp where_expression
+
+delete		nn		delete_data
+from		in		o
+table		nns		table_name
+
+delete		nn		delete_data
+from		in		o
+table		nns		table_name
+where		wrb		where
+abc		nn		where_expression
+>		vbz		 where_expression
+0		nn		 where_expression
+
+DELETE		nn		delete_data
+FROM		in		o
+table		nns		table_name
+where		wrb		where
+abc		nn		where_expression
+>		vbz		 where_expression
+0		nn		 where_expression
+AND pp where_expression
+xyz pp where_expression
+= pp where_expression
+77 pp where_expression
+
+DELETE		nn		delete_data
+from		in		o
+abc		nns		table_name
+
+drop		nn		drop_table
+table		nn		o
+manufatriere		nns		table_name	
+
+drop		nn		drop_table
+table		nn		o
+school		nns		table_name	
+
+drop		nn		drop_table
+table		nn		o
+market		nns		table_name	
+
+DROP		nn		drop_table
+TABLE		nn		o
+manufatriere		nns		table_name	
+
+DROP		nn		drop_table
+TABLE		nn		o
+school		nns		table_name	
+
+DROP		nn		drop_table
+TABLE		nn		o
+market		nns		table_name
+
+

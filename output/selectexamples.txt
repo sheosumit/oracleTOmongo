@@ -1,0 +1,11 @@
+
+db.OFFICES.find({},{CITY: 1,TARGET: 1,SALES: 1})
+db.OFFICES.find({REGION:1},{CITY: 1,TARGET: 1,SALES: 1})
+db.OFFICES.find({$and:[{REGION:1},{SALES:{$gt:TARGET}}]},{CITY: 1,TARGET: 1,SALES: 1}).sort({CITY:1 })
+db.OFFICES.find({REGION:{$lt:1}},{TARGET: 1})
+db.SALESREPS.find({},{NAME: 1,REP_OFFICE: 1,HIRE_DATE: 1})
+db.SALESREPS.find({EMPL_NUM:107},{NAME: 1,QUOTA: 1,SALES: 1})
+db.SALESREPS.find({AGE:{$gt:18}},{SALES: 1})
+db.SALESREPS.find({SALES:{$gt:500000.00}},{NAME: 1,HIRE_DATE: 1})
+db.SALESREPS.find({$and:[{QUOTA:{$gt:100}},{QUOTA:{$lt:200}}]},{NAME: 1,QUOTA: 1,MANAGER: 1})
+db.OFFICES.find({},{CITY: 1,REGION: 1}).sort({regiON:1 })

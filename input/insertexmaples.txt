@@ -1,0 +1,2 @@
+insert into tableA (user_id,age,status) values ('44', 45, 44)
+insert into tableB ( nloa_a ) values (91)

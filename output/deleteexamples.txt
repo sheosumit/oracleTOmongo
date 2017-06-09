@@ -1,0 +1,5 @@
+
+db.people.deleteMany({status:99})
+db.people.deleteMany({$and:[{status:{$lt:99}},{status:{$gt:10}}]})
+db.people.deleteMany({})
+db.tablename.drop()

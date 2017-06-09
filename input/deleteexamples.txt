@@ -1,0 +1,7 @@
+delete from people  WHERE status = 99
+
+delete from people  WHERE status < 99 and status > 10
+
+delete from people  
+
+drop table tablename
